@@ -1,4 +1,5 @@
 import keras
+import matplotlib.pyplot as plt
 from keras.datasets import mnist
 from keras import layers
 
@@ -22,6 +23,9 @@ model.compile( optimizer="rmsprop",
                loss = "sparse_categorical_crossentropy" ,
                metrics = ["accuracy"])
 
+digit = test_images[0]
+plt.imshow(digit , cmap=plt.cm.binary)
+plt.show()
 
 train_images = train_images.reshape( (60000 , 28*28))
 train_images = train_images.astype("float32")/255
@@ -40,3 +44,6 @@ print('test lable for 0 is ' , test_labels[0] )
 
 test_loss , test_acct = model.evaluate(test_images , test_labels)
 print(f" test_acc: {test_acct}")
+
+
+
