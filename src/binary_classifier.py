@@ -66,6 +66,8 @@ def model(inputs):
 
 
     return tf.matmul(inputs , W) + b
+    #return tf.math.sigmoid(tf.matmul(inputs , W) + b)
+    #return tf.nn.relu(tf.matmul(inputs , W) + b)
 
 
 def square_loss(targets , predictions):
